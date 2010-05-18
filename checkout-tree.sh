@@ -31,9 +31,10 @@ fi
 
 DIR=$1
 
-echo "Repository: $GIT_REPOSITORY"
+echo "Git Repository: $GIT_ROOT_REPOSITORY/$GIT_REPOSITORY"
+echo "SVN Repository: $SVN_ROOT_REPOSITORY/$SVN_REPOSITORY"
 echo "Directroy:  $DIR"
 echo "Initialize..."
 
-(echo "mkdir $DIR && cd $DIR && git init &&git remote add origin $GIT_ROOT_REPOSITORY/$GIT_REPOSITORY && git config remote.origin.fetch 'refs/remotes/*:refs/remotes/*' && git fetch && git checkout -b master trunk && git svn init -s $SVN_ROOT_REPOSITORY/$SVN_REPOSITORY && git svn rebase")
+(mkdir $DIR && cd $DIR && git init && git remote add origin $GIT_ROOT_REPOSITORY/$GIT_REPOSITORY && git config remote.origin.fetch 'refs/remotes/*:refs/remotes/*' && git fetch && git checkout -b master trunk && git svn init -s $SVN_ROOT_REPOSITORY/$SVN_REPOSITORY && git svn rebase)
 
